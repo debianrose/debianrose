@@ -1,1 +1,317 @@
-hi
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя БИО с северным сиянием</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: white;
+            overflow-x: hidden;
+            background: #0a0a1a;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .aurora {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .aurora-layer {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            left: -50%;
+            top: -50%;
+            background: linear-gradient(45deg, #0a0a1a 0%, #1a1a3a 100%);
+            animation: aurora-move 30s infinite alternate;
+        }
+
+        .aurora-layer:nth-child(1) {
+            background: linear-gradient(45deg, #0a0a1a 0%, #1a1a3a 100%);
+            opacity: 0.8;
+            animation-delay: 0s;
+        }
+
+        .aurora-layer:nth-child(2) {
+            background: linear-gradient(60deg, #0a2a3a 0%, #1a3a5a 100%);
+            opacity: 0.6;
+            animation-delay: -5s;
+        }
+
+        .aurora-layer:nth-child(3) {
+            background: linear-gradient(30deg, #0a3a2a 0%, #1a5a3a 100%);
+            opacity: 0.4;
+            animation-delay: -10s;
+        }
+
+        .aurora-layer:nth-child(4) {
+            background: linear-gradient(75deg, #3a0a5a 0%, #5a1a7a 100%);
+            opacity: 0.2;
+            animation-delay: -15s;
+        }
+
+        @keyframes aurora-move {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            25% {
+                transform: rotate(2deg) scale(1.05);
+            }
+            50% {
+                transform: rotate(-2deg) scale(1.1);
+            }
+            75% {
+                transform: rotate(1deg) scale(1.05);
+            }
+            100% {
+                transform: rotate(-1deg) scale(1);
+            }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(100, 200, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ffffff, #a0e0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            color: #a0e0ff;
+        }
+
+        section {
+            background: rgba(10, 20, 30, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(100, 200, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #a0e0ff;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: rgba(100, 200, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="aurora">
+        <div class="aurora-layer"></div>
+        <div class="aurora-layer"></div>
+        <div class="aurora-layer"></div>
+        <div class="aurora-layer"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/150" alt="Аватар" class="avatar">
+            <h1>Ваше Имя</h1>
+            <p class="tagline">Ваш заголовок или краткое описание</p>
+            <div class="social-links">
+                <a href="#" class="social-link">📱</a>
+                <a href="#" class="social-link">💼</a>
+                <a href="#" class="social-link">📧</a>
+                <a href="#" class="social-link">🐱</a>
+                <a href="#" class="social-link">🔗</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Обо мне</h2>
+            <p>Здесь вы можете написать краткую информацию о себе, своих интересах и увлечениях. Расскажите, чем вы занимаетесь и что вас вдохновляет.</p>
+            <p>Например: "Я веб-разработчик с passion к созданию красивых и функциональных интерфейсов. Люблю изучать новые технологии и делиться знаниями с другими."</p>
+        </section>
+
+        <section>
+            <h2>Навыки</h2>
+            <div class="skills">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">Дизайн</span>
+                <span class="skill">React</span>
+                <span class="skill">Node.js</span>
+                <span class="skill">Git</span>
+                <span class="skill">Анимации</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Контакты</h2>
+            <p>Email: ваш.email@example.com</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <p>Город: Ваш город</p>
+        </section>
+
+        <footer>
+            <p>© 2023 Ваше Имя. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starsCount = 200;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function animateAurora() {
+            const layers = document.querySelectorAll('.aurora-layer');
+            layers.forEach((layer, index) => {
+                const duration = 30 + (index * 5);
+                layer.style.animationDuration = `${duration}s`;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            animateAurora();
+            
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const aurora = document.querySelector('.aurora');
+                aurora.style.transform = `translateY(${scrollY * 0.2}px)`;
+            });
+        });
+    </script>
+</body>
+  </html>
